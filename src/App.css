@@ -1,0 +1,15 @@
+body {
+    background-color: #457B9D;
+    padding: 85px 15px 15px 15px;
+    margin: 0;
+}
+ul {
+    list-style: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+li {
+    margin-top: 10px;
+}
