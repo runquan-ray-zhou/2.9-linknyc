@@ -42,10 +42,10 @@ export default function Form() {
                         id="borough">
                             <option value="">Choose a Borough</option>
                             <option value="Bronx">Bronx</option>
-                            <option value="Manhattan">Manhattan</option>
+                            <option value="New York">Manhattan</option>
                             <option value="Queens">Queens</option>
                             <option value="Brooklyn">Brooklyn</option>
-                            <option value="Staten">Staten Island</option>
+                            <option value="Staten Island">Staten Island</option>
                     </select>
                 </label>
                 <br />
