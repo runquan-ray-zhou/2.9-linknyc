@@ -7,7 +7,9 @@ export default function Form() {
     function handleFormSubmit(e) {
         e.preventDefault()
         if (!e.target.address.value) {
-            alert("Please input an address")
+            alert("Please add an address")
+        } else if (!e.target.borough.value){
+            alert("Please select an borough")
         } else {
             navigate(`/locations/${e.target.zipcode.value}|${e.target.borough.value}|${e.target.address.value}`)
         }
