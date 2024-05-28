@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import './Locations.css'
 import icon from '../../assets/google.svg';
 import LinkTerminal from "../LinkTerminal/LinkTerminal";
-import { getDistance } from "../../functions/functions"
+import { getDistance, openMap } from "../../functions/functions"
 
 export default function Locations() {
 
@@ -24,6 +24,7 @@ const [location, setLocation] = useState({})
 const [longitude, setLongitude] = useState(0)
 const [latitude, setLatitude] = useState(0)
 
+// fetch for terminal location
   useEffect(() => {
     fetch(zip ? LINK_URL : boroughURL)
     .then((res) => res.json())
@@ -32,6 +33,8 @@ const [latitude, setLatitude] = useState(0)
         return {"location": terminal.location,
                 "lat": terminal.lat,
                 "lon": terminal.lon,
+                "borough": terminal.boroname,
+                "zipcode": terminal.postcode,
                 "miles" : getDistance(latitude, longitude, terminal.lat, terminal.lon)}
     })
     const sortedArray = milesArray.sort((a, b) => a.miles - b.miles)
@@ -40,6 +43,8 @@ const [latitude, setLatitude] = useState(0)
     .catch((err) => console.error(err))
   },[location])
 
+
+// fetch for current location longitude and latitude
   useEffect(() => {
     fetch(url)
     .then((res) => res.json())
@@ -51,9 +56,6 @@ const [latitude, setLatitude] = useState(0)
     .catch((err) => console.error(err))
   },[])
 
-    function openMap(lat, lon) {
-    window.open(`https://maps.google.com?q=${lat},${lon}`);
-  }
     return (
         <div className="locations">
             <h2>Current Location</h2>
@@ -71,21 +73,14 @@ const [latitude, setLatitude] = useState(0)
             <h2>Closest LinkNYC Locations</h2>
             <ul>
             {linkLocations[0] && linkLocations.map((terminal, i) => 
-                <li key={i}>
-                    <LinkTerminal />
-                    <span>
-                    <img onClick={() => openMap(terminal.lat, terminal.lon)} src={icon} alt="google icon" />
-                    <br />
-                    {terminal.location}
-                    <br />
-                    {borough} {zip || location.zip}
-                    </span>
-                    <br />
-                    <span>Distance from current location:
-                    <br />
-                      {getDistance(latitude, longitude, terminal.lat, terminal.lon)} miles
-                    </span>          
-                </li>)}
+                    <LinkTerminal 
+                    key={i} 
+                    terminal={terminal} 
+                    icon={icon} 
+                    latitude={latitude} 
+                    longitude={longitude}
+                    />
+                )}
             </ul>
         </div>
     )

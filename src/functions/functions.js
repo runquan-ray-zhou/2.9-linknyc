@@ -1,4 +1,4 @@
-// distance function to get distance in mile from from current location to terminal location
+// function to get distance from current location to terminal location
 export function getDistance(lat1, lon1, lat2, lon2) {
     const r = 6371; // km
     const p = Math.PI / 180;
@@ -9,4 +9,9 @@ export function getDistance(lat1, lon1, lat2, lon2) {
     //change to miles
     let miles = 2 * r * Math.asin(Math.sqrt(a)) * 0.621371
     return Number.parseFloat(miles.toFixed(4))
+  }
+
+// function to open location in google maps
+  export function openMap(lat, lon) {
+    window.open(`https://maps.google.com?q=${lat},${lon}`);
   }
