@@ -2,6 +2,8 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import './Locations.css'
 import icon from '../../assets/google.svg';
+import LinkTerminal from "../LinkTerminal/LinkTerminal";
+import { getDistance } from "../../functions/functions"
 
 export default function Locations() {
 
@@ -30,7 +32,7 @@ const [latitude, setLatitude] = useState(0)
         return {"location": terminal.location,
                 "lat": terminal.lat,
                 "lon": terminal.lon,
-                "miles" : distance(latitude, longitude, terminal.lat, terminal.lon)}
+                "miles" : getDistance(latitude, longitude, terminal.lat, terminal.lon)}
     })
     const sortedArray = milesArray.sort((a, b) => a.miles - b.miles)
     setLinkLocations(sortedArray.slice(0, 5))
@@ -42,26 +44,12 @@ const [latitude, setLatitude] = useState(0)
     fetch(url)
     .then((res) => res.json())
     .then((res) => {
-        console.log(res)
         setLocation(res.results[0].address_components)
         setLongitude(res.results[0].location.lng)
         setLatitude(res.results[0].location.lat)
     })
     .catch((err) => console.error(err))
   },[])
-
-
-  function distance(lat1, lon1, lat2, lon2) {
-    const r = 6371; // km
-    const p = Math.PI / 180;
-    //haversine formula
-    const a = 0.5 - Math.cos((lat2 - lat1) * p) / 2
-                  + Math.cos(lat1 * p) * Math.cos(lat2 * p) *
-                    (1 - Math.cos((lon2 - lon1) * p)) / 2;  
-    //change to miles
-    let miles = 2 * r * Math.asin(Math.sqrt(a)) * 0.621371
-    return Number.parseFloat(miles.toFixed(4))
-  }
 
     function openMap(lat, lon) {
     window.open(`https://maps.google.com?q=${lat},${lon}`);
@@ -79,12 +67,12 @@ const [latitude, setLatitude] = useState(0)
                 <br />
                 {location.zip}
                 </div>
-                {/* Lat: {latitude} Lng: {longitude} */}
               </div>}
             <h2>Closest LinkNYC Locations</h2>
             <ul>
             {linkLocations[0] && linkLocations.map((terminal, i) => 
                 <li key={i}>
+                    <LinkTerminal />
                     <span>
                     <img onClick={() => openMap(terminal.lat, terminal.lon)} src={icon} alt="google icon" />
                     <br />
@@ -93,12 +81,10 @@ const [latitude, setLatitude] = useState(0)
                     {borough} {zip || location.zip}
                     </span>
                     <br />
-                    {/* <span>Lat: {terminal.lat} Lng: {terminal.lon}</span> */}
                     <span>Distance from current location:
                     <br />
-                      {distance(latitude, longitude, terminal.lat, terminal.lon)} miles
-                    </span>
-                                     
+                      {getDistance(latitude, longitude, terminal.lat, terminal.lon)} miles
+                    </span>          
                 </li>)}
             </ul>
         </div>
