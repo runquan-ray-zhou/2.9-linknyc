@@ -36,10 +36,19 @@ const [latitude, setLatitude] = useState(0)
                 "lon": terminal.lon,
                 "borough": terminal.boroname,
                 "zipcode": terminal.postcode,
-                "miles" : getDistance(latitude, longitude, terminal.lat, terminal.lon)}
-    })
+                "objectid": terminal.objectid,
+                "miles" : getDistance(latitude, longitude, terminal.lat, terminal.lon),
+                "comments": [
+                  {
+                    "commenter": "",
+                    "comment": ""
+                  }
+                ]
+              }
+            })
     const sortedArray = milesArray.sort((a, b) => a.miles - b.miles)
     setLinkLocations(sortedArray.slice(0, 5))
+    console.log(linkLocations)
     })
     .catch((err) => console.error(err))
   },[location])
@@ -75,7 +84,7 @@ const [latitude, setLatitude] = useState(0)
                   <img onClick={() => openMap(terminal.lat, terminal.lon)} src={star} alt="star icon" />
                 </div>
               </div>}
-            <h2>Closest LinkNYC Locations</h2>
+            <h2>Closest LinkNYC</h2>
             <ul>
             {linkLocations[0] && linkLocations.map((terminal, i) => 
                     <LinkTerminal 
