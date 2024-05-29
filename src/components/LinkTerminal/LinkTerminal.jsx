@@ -49,6 +49,7 @@ function addTerminalToStarred(terminal, url){
 
     return (
         <div className="linkTerminal__container">
+           {latitude ?
             <div className="linkTerminal">
                 <div className="linkTerminal__map">
                     <img onClick={() => openMap(terminal.lat, terminal.lon)} src={icon} alt="google icon" />
@@ -64,7 +65,20 @@ function addTerminalToStarred(terminal, url){
                 <div className="linkTerminal__star">
                     <img onClick={() => addTerminalToStarred(terminal, starredURL)} src={star} alt="star icon" />
                 </div>
-            </div>
+            </div> :
+            <div className="linkTerminal">
+                <div className="linkTerminal__map">
+                    <img onClick={() => openMap(terminal.lat, terminal.lon)} src={icon} alt="google icon" />
+                </div>
+                <div className="linkTerminal__address">
+                    {terminal.location}
+                    <br />
+                    {terminal.borough} {terminal.zipcode}
+                </div>
+                <div className="linkTerminal__star">
+                    <img onClick={() => addTerminalToStarred(terminal, starredURL)} src={star} alt="star icon" />
+                </div>
+            </div>}
         </div>
     )
 }
