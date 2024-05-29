@@ -63,7 +63,7 @@ const [latitude, setLatitude] = useState(0)
             {location.number && 
               <div className="locations__current">
                 <img onClick={() => openMap(latitude, longitude)} src={icon} alt="google icon" />
-                <div>
+                <div className="locations__current-address" >
                 {location.number} {location.street} {location.secondarynumber} {location.secondaryunit}
                 <br />
                 {location.city}
