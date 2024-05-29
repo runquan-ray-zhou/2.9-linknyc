@@ -62,15 +62,19 @@ const [latitude, setLatitude] = useState(0)
             <h2>Current Location</h2>
             {location.number && 
               <div className="locations__current">
-                <img onClick={() => openMap(latitude, longitude)} src={icon} alt="google icon" />
-                <div className="locations__current-address" >
-                {location.number} {location.street} {location.secondarynumber} {location.secondaryunit}
-                <br />
-                {location.city}
-                <br />
-                {location.zip}
+                <div className="locations__current-map">
+                  <img onClick={() => openMap(latitude, longitude)} src={icon} alt="google icon" />
                 </div>
-                <img onClick={() => openMap(terminal.lat, terminal.lon)} src={star} alt="star icon" />
+                <div className="locations__current-address" >
+                  {location.number} {location.street} {location.secondarynumber} {location.secondaryunit}
+                  <br />
+                  {location.city}
+                  <br />
+                  {location.zip}
+                </div>
+                <div className="locations__current-star">
+                  <img onClick={() => openMap(terminal.lat, terminal.lon)} src={star} alt="star icon" />
+                </div>
               </div>}
             <h2>Closest LinkNYC Locations</h2>
             <ul>

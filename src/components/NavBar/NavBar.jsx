@@ -11,7 +11,7 @@ export default function NavBar() {
                 <button>Search</button>
             </Link>
             <Link to="/history">
-                <button>History</button>
+                <button>Starred</button>
             </Link>
             <Link to="/about">
                 <button>About</button>

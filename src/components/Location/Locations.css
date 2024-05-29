@@ -7,6 +7,9 @@
     margin: 0;
     padding: 0;
     padding-top: 10px;
+    img {
+        width: auto;
+    }
 }
 .locations__current {
     padding: 10px 70px 15px 80px;
