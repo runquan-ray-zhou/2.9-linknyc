@@ -1,4 +1,4 @@
-import { getDistance, openMap } from "../../functions/functions";
+import { getDistance, openMap, formatAddress} from "../../functions/functions";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import LinkTerminal from "../LinkTerminal/LinkTerminal";
@@ -31,7 +31,7 @@ const [latitude, setLatitude] = useState(0)
     .then((res) => res.json())
     .then((res) => {
         const milesArray = res.map(terminal => {
-        return {"location": terminal.location,
+        return {"location": formatAddress(terminal.location),
                 "lat": terminal.lat,
                 "lon": terminal.lon,
                 "borough": terminal.boroname,
@@ -43,7 +43,6 @@ const [latitude, setLatitude] = useState(0)
     })
     .catch((err) => console.error(err))
   },[location])
-
 
 // fetch for longitude and latitude of current location.
   useEffect(() => {

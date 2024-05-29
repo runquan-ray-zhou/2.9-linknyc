@@ -15,7 +15,7 @@ export default function LinkTerminal( { terminal, longitude, latitude} ) {
                     <br />
                     {terminal.borough} {terminal.zipcode}
                     <br />
-                    {getDistance(latitude, longitude, terminal.lat, terminal.lon)} miles away.
+                    {getDistance(latitude, longitude, terminal.lat, terminal.lon)} miles
                 </div>
                 <div className="linkTerminal__star">
                     <img onClick={() => openMap(terminal.lat, terminal.lon)} src={star} alt="star icon" />

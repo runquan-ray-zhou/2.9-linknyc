@@ -5,7 +5,7 @@ import About from './components/About/About';
 import Home from './components/Home/Home';
 import Form from './components/Form/Form';
 import Locations from './components/Location/Locations';
-import History from './components/History/History';
+import Starred from './components/Starred/Starred';
 import Error from './components/Error/Error';
 import './App.css'
 
@@ -22,7 +22,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/form" element={<Form />} />
             <Route path="/locations/:address" element={<Locations />} />
-            <Route path="/history" element={<History />} />
+            <Route path="/history" element={<Starred />} />
             <Route path="/error" element={<Error />} />
             <Route path="/*" element={<Error />} />
           </Routes>

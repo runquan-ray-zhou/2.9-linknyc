@@ -12,6 +12,11 @@ export function getDistance(lat1, lon1, lat2, lon2) {
   }
 
 // function to open location in google maps
-  export function openMap(lat, lon) {
+export function openMap(lat, lon) {
     window.open(`https://maps.google.com?q=${lat},${lon}`);
+  }
+
+// function to format address
+export function formatAddress(str) {
+    return str.replace("AVENUE", "Ave").replace("STREET","St").split(" ").map(ele => ele[0].toUpperCase() + ele.slice(1).toLowerCase()).join(" ")
   }
