@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
-import './Locations.css'
-import icon from '../../assets/google.svg';
+import { getDistance, openMap } from "../../functions/functions";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import LinkTerminal from "../LinkTerminal/LinkTerminal";
-import { getDistance, openMap } from "../../functions/functions"
+import icon from '../../assets/google.svg';
+import star from '../../assets/star.svg';
+import './Locations.css';
 
 export default function Locations() {
 
@@ -24,7 +25,7 @@ const [location, setLocation] = useState({})
 const [longitude, setLongitude] = useState(0)
 const [latitude, setLatitude] = useState(0)
 
-// fetch for terminal location
+// fetch for terminal locations and replace each object with new terminal object.
   useEffect(() => {
     fetch(zip ? LINK_URL : boroughURL)
     .then((res) => res.json())
@@ -44,7 +45,7 @@ const [latitude, setLatitude] = useState(0)
   },[location])
 
 
-// fetch for current location longitude and latitude
+// fetch for longitude and latitude of current location.
   useEffect(() => {
     fetch(url)
     .then((res) => res.json())
@@ -60,7 +61,7 @@ const [latitude, setLatitude] = useState(0)
         <div className="locations">
             <h2>Current Location</h2>
             {location.number && 
-              <div>
+              <div className="locations__current">
                 <img onClick={() => openMap(latitude, longitude)} src={icon} alt="google icon" />
                 <div>
                 {location.number} {location.street} {location.secondarynumber} {location.secondaryunit}
@@ -69,6 +70,7 @@ const [latitude, setLatitude] = useState(0)
                 <br />
                 {location.zip}
                 </div>
+                <img onClick={() => openMap(terminal.lat, terminal.lon)} src={star} alt="star icon" />
               </div>}
             <h2>Closest LinkNYC Locations</h2>
             <ul>

@@ -8,7 +8,10 @@
     padding: 0;
     padding-top: 10px;
 }
-img {
-    width: 10%;
+
+.locations__current {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 40% 100% 40%;
     cursor: pointer;
 }

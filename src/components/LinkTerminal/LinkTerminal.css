@@ -1,0 +1,7 @@
+.linkTerminal {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 40% 100% 40%;
+    cursor: pointer;
+}
+
