@@ -1,6 +1,7 @@
 import { getDistance, openMap } from "../../functions/functions";
 import icon from '../../assets/google.svg';
 import star from '../../assets/star.svg';
+import del from '../../assets/del.png';
 import './LinkTerminal.css';
 import { useNavigate } from "react-router-dom";
 
@@ -47,6 +48,16 @@ function addTerminalToStarred(terminal, url){
     .catch(err => console.error(err))
 }
 
+// function to delete terminal location from starred page
+function deleteTerminal(id) {
+    const options = { method: 'DELETE' };
+    return fetch(
+      `https://665683d19f970b3b36c5aa7e.mockapi.io/api/v1/terminals/${id}`,
+      options
+    ).then(() => navigate(0))
+    .catch(err => console.error(err));
+}
+
     return (
         <div className="linkTerminal__container">
            {latitude ?
@@ -66,17 +77,17 @@ function addTerminalToStarred(terminal, url){
                     <img onClick={() => addTerminalToStarred(terminal, starredURL)} src={star} alt="star icon" />
                 </div>
             </div> :
-            <div className="linkTerminal">
+            <div className="linkTerminal__starred">
                 <div className="linkTerminal__map">
-                    <img onClick={() => openMap(terminal.lat, terminal.lon)} src={icon} alt="google icon" />
+                    <img className="linkTerminal__icon-img" onClick={() => openMap(terminal.lat, terminal.lon)} src={icon} alt="google icon" />
                 </div>
                 <div className="linkTerminal__address">
                     {terminal.location}
                     <br />
                     {terminal.borough} {terminal.zipcode}
                 </div>
-                <div className="linkTerminal__star">
-                    <img onClick={() => addTerminalToStarred(terminal, starredURL)} src={star} alt="star icon" />
+                <div className="linkTerminal__del">
+                    <img className="linkTerminal__del-img" onClick={() => deleteTerminal(terminal.id)} src={del} alt="delete icon" />
                 </div>
             </div>}
         </div>

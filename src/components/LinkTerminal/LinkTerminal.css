@@ -14,3 +14,20 @@
 .linkTerminal__address {
     margin: 0px 10px;
 }
+.linkTerminal__del-img,
+.linkTerminal__icon-img {
+    height: 50px;
+}
+.linkTerminal__starred {
+    padding: 10px 50px 10px 80px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 40% 85% 40%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #1D3557;
+    color: white;
+    img {
+        width: auto;
+    }
+}
