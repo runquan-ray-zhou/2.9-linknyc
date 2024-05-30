@@ -13,7 +13,7 @@ export default function Home() {
         </button>
         </Link>
         <h1>Starred Locations</h1>
-        <Link to="/history">
+        <Link to="/starred">
         <button>
             <img className="home__star-icon" src={star} alt="star icon" />
         </button>

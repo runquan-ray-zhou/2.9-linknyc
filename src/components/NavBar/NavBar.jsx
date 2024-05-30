@@ -10,7 +10,7 @@ export default function NavBar() {
             <Link to="/form">
                 <button>Search</button>
             </Link>
-            <Link to="/history">
+            <Link to="/starred">
                 <button>Starred</button>
             </Link>
             <Link to="/about">

@@ -22,7 +22,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/form" element={<Form />} />
             <Route path="/locations/:address" element={<Locations />} />
-            <Route path="/history" element={<Starred />} />
+            <Route path="/starred" element={<Starred />} />
             <Route path="/error" element={<Error />} />
             <Route path="/*" element={<Error />} />
           </Routes>

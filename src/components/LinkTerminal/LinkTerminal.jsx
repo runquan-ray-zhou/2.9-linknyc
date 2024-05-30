@@ -4,9 +4,13 @@ import star from '../../assets/star.svg';
 import del from '../../assets/del.png';
 import './LinkTerminal.css';
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function LinkTerminal( { terminal, longitude, latitude} ) {
     const navigate = useNavigate()
+
+    const [showDetails, setShowDetails] = useState("none")
+    const [shown, setShown] = useState("Show More...")
 
     const starredURL = "https://665683d19f970b3b36c5aa7e.mockapi.io/api/v1/terminals"
 
@@ -58,6 +62,17 @@ function deleteTerminal(id) {
     .catch(err => console.error(err));
 }
 
+// function to toggle comments section
+function toggleDetails(){
+    if(showDetails === "none") {
+        setShowDetails("block")
+        setShown("Show Less...")
+    } else {
+        setShowDetails("none")
+        setShown("Show More...")
+    }
+}
+
     return (
         <div className="linkTerminal__container">
            {latitude ?
@@ -85,10 +100,15 @@ function deleteTerminal(id) {
                     {terminal.location}
                     <br />
                     {terminal.borough} {terminal.zipcode}
+                    <br />
+                    <span onClick={toggleDetails}>{shown}</span>
                 </div>
                 <div className="linkTerminal__del">
                     <img className="linkTerminal__del-img" onClick={() => deleteTerminal(terminal.id)} src={del} alt="delete icon" />
                 </div>
+                <div style={{display: showDetails}}>
+                    <p>This is the comment sections</p>
+                </div>    
             </div>}
         </div>
     )

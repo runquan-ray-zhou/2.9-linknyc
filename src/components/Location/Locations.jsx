@@ -38,12 +38,6 @@ const [latitude, setLatitude] = useState(0)
                 "zipcode": terminal.postcode,
                 "objectid": terminal.objectid,
                 "miles" : getDistance(latitude, longitude, terminal.lat, terminal.lon),
-                "comments": [
-                  {
-                    "commenter": "",
-                    "comment": ""
-                  }
-                ]
               }
             })
     const sortedArray = milesArray.sort((a, b) => a.miles - b.miles)
