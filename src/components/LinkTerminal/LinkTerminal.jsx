@@ -107,6 +107,7 @@ function toggleDetails(){
                 <div className="linkTerminal__del">
                     <img className="linkTerminal__del-img" onClick={() => deleteTerminal(terminal.id)} src={del} alt="delete icon" />
                 </div>
+                <div></div>
                 <div style={{display: showDetails}}>
                     <div className="comments">
                         <CommentForm terminalId={terminal.objectid}/>

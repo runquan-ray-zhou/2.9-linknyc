@@ -72,13 +72,13 @@ export default function CommentForm({ terminalId }) {
 
   return (
     <div className="commentForm">
-      <h2>
+      <p>
         <span>{displayComment.length}</span> Comments
-      </h2>
+      </p>
       <form onSubmit={addComments}>
         <div className="commenter">
           <label>
-            Commenter Name
+            Commenter
             <br />
             <br />
             <input
@@ -103,7 +103,6 @@ export default function CommentForm({ terminalId }) {
             />
           </label>
         </div>
-
         <br />
         <input className="submit-button" type="submit" value="Add Comment" />
       </form>
@@ -115,8 +114,6 @@ export default function CommentForm({ terminalId }) {
                 @{ele.comments[0].commenter}{' '}
                 <span>{ele.comments[0].comment}</span>
               </p>
-
-              <br />
               <button onClick={() => deleteComment(ele.id)}>
               Delete
               </button>
