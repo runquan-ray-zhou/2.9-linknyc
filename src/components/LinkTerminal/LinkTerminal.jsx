@@ -5,6 +5,7 @@ import del from '../../assets/del.png';
 import './LinkTerminal.css';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import CommentForm from '../CommentForm/CommentForm';
 
 export default function LinkTerminal( { terminal, longitude, latitude} ) {
     const navigate = useNavigate()
@@ -107,7 +108,9 @@ function toggleDetails(){
                     <img className="linkTerminal__del-img" onClick={() => deleteTerminal(terminal.id)} src={del} alt="delete icon" />
                 </div>
                 <div style={{display: showDetails}}>
-                    <p>This is the comment sections</p>
+                    <div className="comments">
+                        <CommentForm terminalId={terminal.objectid}/>
+                    </div>
                 </div>    
             </div>}
         </div>
