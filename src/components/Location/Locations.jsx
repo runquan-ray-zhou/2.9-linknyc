@@ -79,9 +79,9 @@ const [latitude, setLatitude] = useState(0)
               </div>}
             <h2>Closest LinkNYC</h2>
             <ul>
-            {linkLocations[0] && linkLocations.map((terminal, i) => 
+            {linkLocations[0] && linkLocations.map(terminal => 
                     <LinkTerminal 
-                    key={i} 
+                    key={terminal.objectid} 
                     terminal={terminal} 
                     icon={icon} 
                     latitude={latitude} 

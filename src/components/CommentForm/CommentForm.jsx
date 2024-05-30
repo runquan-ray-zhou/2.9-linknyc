@@ -108,8 +108,8 @@ export default function CommentForm({ terminalId }) {
       </form>
       <ul>
         {displayComment[0] &&
-          displayComment.map((ele) => (
-            <li key={ele.comment}>
+          displayComment.map((ele, i) => (
+            <li key={i}>
               <p>
                 @{ele.comments[0].commenter}{' '}
                 <span>{ele.comments[0].comment}</span>

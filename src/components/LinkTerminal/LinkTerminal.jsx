@@ -86,12 +86,19 @@ function toggleDetails(){
                     <br />
                     {terminal.borough} {terminal.zipcode}
                     <br />
-                    <br />
                     {getDistance(latitude, longitude, terminal.lat, terminal.lon)} miles
+                    <br />
+                    <span onClick={toggleDetails}>{shown}</span>
                 </div>
                 <div className="linkTerminal__star">
                     <img onClick={() => addTerminalToStarred(terminal, starredURL)} src={star} alt="star icon" />
                 </div>
+                <div></div>
+                <div style={{display: showDetails}}>
+                    <div className="comments">
+                        <CommentForm terminalId={terminal.objectid}/>
+                    </div>
+                </div>    
             </div> :
             <div className="linkTerminal__starred">
                 <div className="linkTerminal__map">
