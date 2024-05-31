@@ -3,9 +3,11 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function CommentForm({ terminalId }) {
-  const navigate = useNavigate();
 
-  let BASE_URL = 'https://6637c889288fedf69381538c.mockapi.io/api/v1/notes';
+const navigate = useNavigate();
+
+// mockapi holding list of comments for each location
+const commentsURL = 'https://6637c889288fedf69381538c.mockapi.io/api/v1/notes';
 
   const [comment, setComment] = useState({
     commenter: '',
@@ -25,7 +27,7 @@ export default function CommentForm({ terminalId }) {
   const [displayComment, setDisplayComment] = useState({});
 
   useEffect(() => {
-    fetch('https://6637c889288fedf69381538c.mockapi.io/api/v1/notes')
+    fetch(commentsURL)
       .then((response) => response.json())
       .then((response) => {
         const filtered = response.filter((ele) => ele.objectid === terminalId);
@@ -47,7 +49,7 @@ export default function CommentForm({ terminalId }) {
       body: JSON.stringify(newComment),
       headers: { 'Content-Type': 'application/json' },
     };
-    return fetch(`${BASE_URL}`, options)
+    return fetch(`${commentsURL}`, options)
       .then((response) => {
         return response.json();
       })
@@ -65,7 +67,7 @@ export default function CommentForm({ terminalId }) {
   function deleteComment(id) {
     const options = { method: 'DELETE' };
     return fetch(
-      `https://6637c889288fedf69381538c.mockapi.io/api/v1/notes/${id}`,
+      `${commentsURL}/${id}`,
       options
     ).then(() => navigate(0));
   }

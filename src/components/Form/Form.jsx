@@ -53,7 +53,7 @@ export default function Form() {
                 <br />
                 <label>
                 <div className="search__label">
-                Zipcode:
+                Zip code:
                 </div>
                 <br />
                     <input

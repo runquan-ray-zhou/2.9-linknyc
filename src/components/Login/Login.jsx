@@ -4,6 +4,7 @@ import wifi from '../../assets/wifi.png';
 
 
 export default function Login() {
+    
     return (
         <div className="login">
             <div className="circle">

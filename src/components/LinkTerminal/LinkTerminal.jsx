@@ -1,5 +1,5 @@
 import { getDistance, openMap } from "../../functions/functions";
-import icon from '../../assets/google.svg';
+import google from '../../assets/google.svg';
 import star from '../../assets/star.svg';
 import del from '../../assets/del.png';
 import './LinkTerminal.css';
@@ -8,12 +8,14 @@ import { useState } from "react";
 import CommentForm from '../CommentForm/CommentForm';
 
 export default function LinkTerminal( { terminal, longitude, latitude} ) {
-    const navigate = useNavigate()
 
-    const [showDetails, setShowDetails] = useState("none")
-    const [shown, setShown] = useState("Show More...")
+const navigate = useNavigate()
 
-    const starredURL = "https://665683d19f970b3b36c5aa7e.mockapi.io/api/v1/terminals"
+const [showDetails, setShowDetails] = useState("none")
+const [shown, setShown] = useState("Show More...")
+
+// mockapi holding list of starred terminal locations
+const starredURL = "https://665683d19f970b3b36c5aa7e.mockapi.io/api/v1/terminals"
 
 // function to check if location is already starred
 function checkTerminal(id, url){
@@ -40,7 +42,7 @@ function addTerminal(terminal, url) {
     .catch(err => console.error(err));
 }
 
-//onClick function to add terminal location to starred page
+// onClick function to add terminal location to starred page
 function addTerminalToStarred(terminal, url){
     checkTerminal(terminal.objectid, url)
     .then((haveTerminal) => {
@@ -57,7 +59,7 @@ function addTerminalToStarred(terminal, url){
 function deleteTerminal(id) {
     const options = { method: 'DELETE' };
     return fetch(
-      `https://665683d19f970b3b36c5aa7e.mockapi.io/api/v1/terminals/${id}`,
+      `${starredURL}/${id}`,
       options
     ).then(() => navigate(0))
     .catch(err => console.error(err));
@@ -79,7 +81,7 @@ function toggleDetails(){
            {latitude ?
             <div className="linkTerminal">
                 <div className="linkTerminal__map">
-                    <img onClick={() => openMap(terminal.lat, terminal.lon)} src={icon} alt="google icon" />
+                    <img onClick={() => openMap(terminal.lat, terminal.lon)} src={google} alt="google icon" />
                 </div>
                 <div className="linkTerminal__address">
                     {terminal.location}
@@ -102,7 +104,7 @@ function toggleDetails(){
             </div> :
             <div className="linkTerminal__starred">
                 <div className="linkTerminal__map">
-                    <img className="linkTerminal__icon-img" onClick={() => openMap(terminal.lat, terminal.lon)} src={icon} alt="google icon" />
+                    <img className="linkTerminal__icon-img" onClick={() => openMap(terminal.lat, terminal.lon)} src={google} alt="google icon" />
                 </div>
                 <div className="linkTerminal__address">
                     {terminal.location}
