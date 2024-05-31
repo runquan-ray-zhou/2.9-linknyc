@@ -113,8 +113,10 @@ const commentsURL = 'https://6637c889288fedf69381538c.mockapi.io/api/v1/notes';
           displayComment.map((ele, i) => (
             <li key={i}>
               <p>
-                @{ele.comments[0].commenter}{' '}
-                <span>{ele.comments[0].comment}</span>
+                {ele.comments[0].commenter}
+                <br />
+                <br />
+                <span>"{ele.comments[0].comment}"</span>
               </p>
               <button onClick={() => deleteComment(ele.id)}>
               Delete

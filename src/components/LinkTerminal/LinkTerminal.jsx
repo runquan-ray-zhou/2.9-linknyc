@@ -90,7 +90,7 @@ function toggleDetails(){
                     <br />
                     {getDistance(latitude, longitude, terminal.lat, terminal.lon)} miles
                     <br />
-                    <span onClick={toggleDetails}>{shown}</span>
+                    <span style={{cursor: "pointer"}} onClick={toggleDetails}>{shown}</span>
                 </div>
                 <div className="linkTerminal__star">
                     <img onClick={() => addTerminalToStarred(terminal, starredURL)} src={star} alt="star icon" />
@@ -111,7 +111,7 @@ function toggleDetails(){
                     <br />
                     {terminal.borough} {terminal.zipcode}
                     <br />
-                    <span onClick={toggleDetails}>{shown}</span>
+                    <span style={{cursor: "pointer"}} onClick={toggleDetails}>{shown}</span>
                 </div>
                 <div className="linkTerminal__del">
                     <img className="linkTerminal__del-img" onClick={() => deleteTerminal(terminal.id)} src={del} alt="delete icon" />
