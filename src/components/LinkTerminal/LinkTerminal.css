@@ -1,5 +1,5 @@
 .linkTerminal {
-    padding: 10px 90px 10px 90px;
+    padding: 10px 70px 10px 70px;
     display: grid;
     justify-content: center;
     grid-template-columns: 40% 120% 40%;
@@ -12,7 +12,9 @@
     }
 }
 .linkTerminal__address {
-    margin: 0px 10px;
+    /* padding: 0px 10px; */
+    /* display: flex;
+    flex-direction: column; */
 }
 .linkTerminal__del-img,
 .linkTerminal__icon-img {
