@@ -12,7 +12,7 @@ export default function LinkTerminal( { terminal, longitude, latitude} ) {
 const navigate = useNavigate()
 
 const [showDetails, setShowDetails] = useState("none")
-const [shown, setShown] = useState("Show More...")
+const [shown, setShown] = useState("Show Comments")
 
 // mockapi holding list of starred terminal locations
 const starredURL = "https://665683d19f970b3b36c5aa7e.mockapi.io/api/v1/terminals"
@@ -69,10 +69,10 @@ function deleteTerminal(id) {
 function toggleDetails(){
     if(showDetails === "none") {
         setShowDetails("block")
-        setShown("Show Less...")
+        setShown("Hide Comments")
     } else {
         setShowDetails("none")
-        setShown("Show More...")
+        setShown("Show Comments")
     }
 }
 
@@ -90,7 +90,7 @@ function toggleDetails(){
                     <br />
                     {getDistance(latitude, longitude, terminal.lat, terminal.lon)} miles
                     <br />
-                    <span style={{cursor: "pointer"}} onClick={toggleDetails}>{shown}</span>
+                    <span style={{cursor: "pointer",color: "#E63946"}} onClick={toggleDetails}>{shown}</span>
                 </div>
                 <div className="linkTerminal__star">
                     <img onClick={() => addTerminalToStarred(terminal, starredURL)} src={star} alt="star icon" />
@@ -111,7 +111,7 @@ function toggleDetails(){
                     <br />
                     {terminal.borough} {terminal.zipcode}
                     <br />
-                    <span style={{cursor: "pointer"}} onClick={toggleDetails}>{shown}</span>
+                    <span style={{cursor: "pointer",color: "#E63946"}} onClick={toggleDetails}>{shown}</span>
                 </div>
                 <div className="linkTerminal__del">
                     <img className="linkTerminal__del-img" onClick={() => deleteTerminal(terminal.id)} src={del} alt="delete icon" />
