@@ -11,10 +11,15 @@ export function getDistance(lat1, lon1, lat2, lon2) {
     return Number.parseFloat(miles.toFixed(4))
   }
 
-// function to open location in google maps
-export function openMap(lat, lon) {
-    window.open(`https://maps.google.com?q=${lat},${lon}`);
+// function to open google maps with directions from current location to terminal
+export function getDirectionOnGoogleMap(termLat, termLon, lat, lon, address, borough) {
+  window.open(`https://www.google.com/maps/dir/${lat},${lon}/${address},+${borough},+NY/@${termLat},${termLon}`)
   }
+
+// function to open location in google maps
+export function openGoogleMap(lat, lon) {
+  window.open(`https://maps.google.com?q=${lat},${lon}`);
+}
 
 // function to format address
 export function formatAddress(str) {

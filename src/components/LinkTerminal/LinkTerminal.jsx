@@ -1,4 +1,4 @@
-import { getDistance, openMap } from "../../functions/functions";
+import { getDistance, getDirectionOnGoogleMap,  openGoogleMap} from "../../functions/functions";
 import google from '../../assets/google.svg';
 import star from '../../assets/star.svg';
 import del from '../../assets/del.png';
@@ -81,7 +81,7 @@ function toggleDetails(){
            {latitude ?
             <div className="linkTerminal">
                 <div className="linkTerminal__map">
-                    <img onClick={() => openMap(terminal.lat, terminal.lon)} src={google} alt="google icon" />
+                    <img onClick={() => getDirectionOnGoogleMap(terminal.lat, terminal.lon, latitude, longitude, terminal.location, terminal.borough)} src={google} alt="google icon" />
                 </div>
                 <div className="linkTerminal__address">
                     {terminal.location}
@@ -104,7 +104,7 @@ function toggleDetails(){
             </div> :
             <div className="linkTerminal__starred">
                 <div className="linkTerminal__map">
-                    <img className="linkTerminal__icon-img" onClick={() => openMap(terminal.lat, terminal.lon)} src={google} alt="google icon" />
+                    <img className="linkTerminal__icon-img" onClick={() => openGoogleMap(terminal.lat, terminal.lon)} src={google} alt="google icon" />
                 </div>
                 <div className="linkTerminal__address">
                     {terminal.location}

@@ -1,4 +1,4 @@
-import { getDistance, openMap, formatAddress} from "../../functions/functions";
+import { getDistance, openGoogleMap, formatAddress} from "../../functions/functions";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import LinkTerminal from "../LinkTerminal/LinkTerminal";
@@ -64,7 +64,7 @@ const [latitude, setLatitude] = useState(0)
             {location.number && 
               <div className="locations__current">
                 <div className="locations__current-map">
-                  <img onClick={() => openMap(latitude, longitude)} src={icon} alt="google icon" />
+                  <img onClick={() => openGoogleMap(latitude, longitude)} src={icon} alt="google icon" />
                 </div>
                 <div className="locations__current-address" >
                   {location.number} {location.street} {location.secondarynumber} {location.secondaryunit}
