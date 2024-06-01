@@ -1,6 +1,7 @@
 import { getDistance, getDirectionOnGoogleMap,  openGoogleMap} from "../../functions/functions";
 import google from '../../assets/google.svg';
 import star from '../../assets/star.svg';
+import emptystar from '../../assets/emptystar.png';
 import del from '../../assets/del.png';
 import './LinkTerminal.css';
 import { useNavigate } from "react-router-dom";
@@ -102,15 +103,17 @@ function toggleDetails(){
                     <span style={{cursor: "pointer",color: "#E63946"}} onClick={toggleDetails}>{shown}</span>
                 </div>
                 {starred.length ? (starred.some(obj => obj.objectid === terminal.objectid) ? (
-                <div>Already Starred</div>
+                <div className="linkTerminal__star">
+                    <img className="linkTerminal__icon-img" src={star} alt="star icon" />
+                </div>
                 ) : (
                 <div className="linkTerminal__star">
-                    <img className="linkTerminal__icon-img" onClick={() => addTerminalToStarred(terminal, starredURL)} src={star} alt="star icon" />
+                    <img className="linkTerminal__icon-img" onClick={() => addTerminalToStarred(terminal, starredURL)} src={emptystar} alt="emptystar icon" />
                 </div>
                 )
                 ) : (
                  <div className="linkTerminal__star">
-                    <img className="linkTerminal__icon-img" onClick={() => addTerminalToStarred(terminal, starredURL)} src={star} alt="star icon" />
+                    <img className="linkTerminal__icon-img" onClick={() => addTerminalToStarred(terminal, starredURL)} src={emptystar} alt="emptystar icon" />
                 </div>
                 )}
                 <div></div>
