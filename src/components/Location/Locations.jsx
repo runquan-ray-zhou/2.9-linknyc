@@ -2,8 +2,7 @@ import { getDistance, openGoogleMap, formatAddress} from "../../functions/functi
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import LinkTerminal from "../LinkTerminal/LinkTerminal";
-import icon from '../../assets/google.svg';
-import star from '../../assets/star.svg';
+import googlemaps from '../../assets/googlemaps.svg';
 import './Locations.css';
 
 export default function Locations() {
@@ -64,7 +63,7 @@ const [latitude, setLatitude] = useState(0)
             {location.number && 
               <div className="locations__current">
                 <div className="locations__current-map">
-                  <img onClick={() => openGoogleMap(latitude, longitude)} src={icon} alt="google icon" />
+                  <img onClick={() => openGoogleMap(latitude, longitude)} src={googlemaps} alt="googlemap icon" />
                 </div>
                 <div className="locations__current-address" >
                   {location.number} {location.street} {location.secondarynumber} {location.secondaryunit}
@@ -74,7 +73,7 @@ const [latitude, setLatitude] = useState(0)
                   {location.zip}
                 </div>
                 <div className="locations__current-star">
-                  <img onClick={() => openMap(terminal.lat, terminal.lon)} src={star} alt="star icon" />
+                  <img onClick={() => openGoogleMap(latitude, longitude)} src={googlemaps} alt="googlemap icon" />
                 </div>
               </div>}
             <h2>Closest LinkNYC</h2>
@@ -83,7 +82,6 @@ const [latitude, setLatitude] = useState(0)
                     <LinkTerminal 
                     key={terminal.objectid} 
                     terminal={terminal} 
-                    icon={icon} 
                     latitude={latitude} 
                     longitude={longitude}
                     />

@@ -11,11 +11,7 @@
         width: auto;
     }
 }
-.linkTerminal__address {
-    /* padding: 0px 10px; */
-    /* display: flex;
-    flex-direction: column; */
-}
+
 .linkTerminal__del-img,
 .linkTerminal__icon-img {
     height: 50px;
