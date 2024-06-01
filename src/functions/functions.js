@@ -23,5 +23,5 @@ export function openGoogleMap(lat, lon) {
 
 // function to format address
 export function formatAddress(str) {
-    return str.replace("AVENUE", "Ave").replace("STREET","St").split(" ").map(ele => ele[0].toUpperCase() + ele.slice(1).toLowerCase()).join(" ")
+    return str.replace("AVENUE", "Ave").replace("STREET","St").replace("BOULEVARD","Blvd").split(" ").map(ele => ele[0].toUpperCase() + ele.slice(1).toLowerCase()).join(" ")
   }

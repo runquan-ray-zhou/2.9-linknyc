@@ -40,7 +40,7 @@ const [latitude, setLatitude] = useState(0)
               }
             })
     const sortedArray = milesArray.sort((a, b) => a.miles - b.miles)
-    setLinkLocations(sortedArray.slice(0, 5))
+    setLinkLocations(sortedArray.slice(0,5))
     })
     .catch((err) => console.error(err))
   },[location])

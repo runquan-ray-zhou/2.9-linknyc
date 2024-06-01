@@ -7,6 +7,9 @@
     margin: 0;
     padding: 0;
     padding-top: 10px;
+    img {
+        width: auto;
+    }
 }
 .locations__current {
     padding: 10px 50px 15px 80px;
@@ -25,9 +28,4 @@
 }
 .locations__current-address {
     margin: 0px 10px;
-}
-.locations__current-map,
-.locations__current-star {
-    display: flex;
-    justify-content: start;
 }

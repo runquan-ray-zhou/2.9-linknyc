@@ -4,7 +4,7 @@ import star from '../../assets/star.svg';
 import del from '../../assets/del.png';
 import './LinkTerminal.css';
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CommentForm from '../CommentForm/CommentForm';
 
 export default function LinkTerminal( { terminal, longitude, latitude} ) {
@@ -13,9 +13,18 @@ const navigate = useNavigate()
 
 const [showDetails, setShowDetails] = useState("none")
 const [shown, setShown] = useState("Show Comments")
+const [starred, setStarred] = useState([])
 
 // mockapi holding list of starred terminal locations
 const starredURL = "https://665683d19f970b3b36c5aa7e.mockapi.io/api/v1/terminals"
+
+// fetch starredURL to check for starred locations
+useEffect(() => {
+    fetch(starredURL)
+    .then((res) => res.json())
+    .then((res) => setStarred(res))
+    .catch(err => console.error(err))
+},[])
 
 // function to check if location is already starred
 function checkTerminal(id, url){
@@ -81,7 +90,7 @@ function toggleDetails(){
            {latitude ?
             <div className="linkTerminal">
                 <div className="linkTerminal__map">
-                    <img onClick={() => getDirectionOnGoogleMap(terminal.lat, terminal.lon, latitude, longitude, terminal.location, terminal.borough)} src={google} alt="google icon" />
+                    <img className="linkTerminal__icon-img" onClick={() => getDirectionOnGoogleMap(terminal.lat, terminal.lon, latitude, longitude, terminal.location, terminal.borough)} src={google} alt="google icon" />
                 </div>
                 <div className="linkTerminal__address">
                     {terminal.location}
@@ -92,9 +101,18 @@ function toggleDetails(){
                     <br />
                     <span style={{cursor: "pointer",color: "#E63946"}} onClick={toggleDetails}>{shown}</span>
                 </div>
+                {starred.length ? (starred.some(obj => obj.objectid === terminal.objectid) ? (
+                <div>Already Starred</div>
+                ) : (
                 <div className="linkTerminal__star">
-                    <img onClick={() => addTerminalToStarred(terminal, starredURL)} src={star} alt="star icon" />
+                    <img className="linkTerminal__icon-img" onClick={() => addTerminalToStarred(terminal, starredURL)} src={star} alt="star icon" />
                 </div>
+                )
+                ) : (
+                 <div className="linkTerminal__star">
+                    <img className="linkTerminal__icon-img" onClick={() => addTerminalToStarred(terminal, starredURL)} src={star} alt="star icon" />
+                </div>
+                )}
                 <div></div>
                 <div style={{display: showDetails}}>
                     <div className="comments">
