@@ -1,4 +1,4 @@
-.about {
+.About {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,4 +9,42 @@
     padding: 0;
     font-size: 1.1em;
     color: white;
+    margin-top: 20px;
+
+    .fa-brands,
+    .fa-regular,
+    .fa-solid {
+        margin: 5px 30px;
+        font-size: 50px;
+        color: white;
+        cursor: pointer;
+    }
+    .fa-brands:hover,
+    .fa-regular:hover,
+    .fa-solid:hover {
+        color: #1D3557;
+    }
+
+    .About__img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 5px solid white;
+        cursor:auto;
+    }
+    .About__img:hover {
+        border: 5px solid #1D3557;
+    }
+    .About__icons {
+        width: 350px;
+        margin-top: 50px;
+        display: flex;
+        align-items: center;
+        a {
+            margin: -12px;
+        }
+    }
+    p {
+        margin-top: 50px;
+    }
 }
