@@ -11,14 +11,6 @@ export default function About() {
                 <a href="https://www.linkedin.com/in/runquanrayzhou/"><i className="fa-brands fa-linkedin"></i></a>
                 <a href="https://github.com/runquan-ray-zhou/2.9-linknyc"><i className="fa-solid fa-code"></i></a>
             </div>
-            <iframe
-                width="300"
-                height="175"
-                style={{border: "none"}}
-                src="https://test-ar-marker-react.netlify.app/"
-                allowFullScreen
-                allow="camera"
-            ></iframe>
             <p>All Rights Reserved 2024</p>
         </div>
     )
