@@ -11,11 +11,6 @@ export default function About() {
                 <a href="https://www.linkedin.com/in/runquanrayzhou/"><i className="fa-brands fa-linkedin"></i></a>
                 <a href="https://github.com/runquan-ray-zhou/2.9-linknyc"><i className="fa-solid fa-code"></i></a>
             </div>
-            <label for="selfie" class="capture-button">Take a Selfie</label>
-            <input type="file" id="selfie" capture="user" accept="image/*,video/*" />
-
-            <label for="photo" class="capture-button">Take a Photo</label>
-            <input type="file" id="photo" capture="environment" accept="image/*,video/*" /> 
             <p>All Rights Reserved 2024</p>
         </div>
     )
