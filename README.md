@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-LinkNYC Finder is a web application designed to help users locate the nearest LinkNYC terminals in New York City. These terminals offer free Wi-Fi access across the city. Users can simply input their location, and the app will display a list of the closest terminals where they can connect to the internet.
+LinkNYC Finder is a web application designed to help users locate the nearest LinkNYC terminals in New York City. These terminals offer free Wi-Fi access across the city. Users can simply input their location, and the app will display a list of the closest terminals where they can connect to the internet for free.
 
 ## Technology Utilized
 
