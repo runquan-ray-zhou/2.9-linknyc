@@ -31,6 +31,13 @@ export default function About() {
             Click for more info{" "}
           </a>
         </h4>
+        <h4>
+          LinkNYC Finder is a web application designed to help users locate the
+          nearest LinkNYC terminals in New York City. These terminals offer free
+          Wi-Fi access across the city. Users can simply input their location,
+          and the app will display a list of the closest terminals where they
+          can connect to the internet for free.
+        </h4>
       </div>
       <img
         className="About__img"
@@ -39,16 +46,32 @@ export default function About() {
       />
       <p>LinkNYC Finder By: Runquan (Ray) Zhou</p>
       <div className="About__icons">
-        <a href="mailto:rzhou@pursuit.org">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="mailto:rzhou@pursuit.org"
+        >
           <i className="fa-regular fa-envelope"></i>
         </a>
-        <a href="https://github.com/runquan-ray-zhou">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/runquan-ray-zhou"
+        >
           <i className="fa-brands fa-github"></i>
         </a>
-        <a href="https://www.linkedin.com/in/runquanrayzhou/">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.linkedin.com/in/runquanrayzhou/"
+        >
           <i className="fa-brands fa-linkedin"></i>
         </a>
-        <a href="https://github.com/runquan-ray-zhou/2.9-linknyc">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/runquan-ray-zhou/2.9-linknyc"
+        >
           <i className="fa-solid fa-code"></i>
         </a>
       </div>
