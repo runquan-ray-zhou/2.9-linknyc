@@ -1,25 +1,25 @@
-import './CommentForm.css';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import "./CommentForm.css";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CommentForm({ terminalId }) {
+  const navigate = useNavigate();
 
-const navigate = useNavigate();
-
-// mockapi holding list of comments for each location
-const commentsURL = 'https://6637c889288fedf69381538c.mockapi.io/api/v1/notes';
+  // mockapi holding list of comments for each location
+  const commentsURL =
+    "https://6637c889288fedf69381538c.mockapi.io/api/v1/notes";
 
   const [comment, setComment] = useState({
-    commenter: '',
-    comment: '',
+    commenter: "",
+    comment: "",
   });
 
   const [newComment, setNewComment] = useState({
-    objectid: `${terminalId}`,
+    cb_link_id: `${terminalId}`,
     comments: [
       {
-        commenter: '',
-        comment: '',
+        commenter: "",
+        comment: "",
       },
     ],
   });
@@ -30,7 +30,9 @@ const commentsURL = 'https://6637c889288fedf69381538c.mockapi.io/api/v1/notes';
     fetch(commentsURL)
       .then((response) => response.json())
       .then((response) => {
-        const filtered = response.filter((ele) => ele.objectid === terminalId);
+        const filtered = response.filter(
+          (ele) => ele.cb_link_id === terminalId
+        );
         setDisplayComment(filtered);
       });
   }, []);
@@ -45,9 +47,9 @@ const commentsURL = 'https://6637c889288fedf69381538c.mockapi.io/api/v1/notes';
 
   function createNewComment(newComment) {
     const options = {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify(newComment),
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
     };
     return fetch(`${commentsURL}`, options)
       .then((response) => {
@@ -65,11 +67,8 @@ const commentsURL = 'https://6637c889288fedf69381538c.mockapi.io/api/v1/notes';
   }
 
   function deleteComment(id) {
-    const options = { method: 'DELETE' };
-    return fetch(
-      `${commentsURL}/${id}`,
-      options
-    ).then(() => navigate(0));
+    const options = { method: "DELETE" };
+    return fetch(`${commentsURL}/${id}`, options).then(() => navigate(0));
   }
 
   return (
@@ -109,20 +108,28 @@ const commentsURL = 'https://6637c889288fedf69381538c.mockapi.io/api/v1/notes';
         <input className="submit-button" type="submit" value="Add Comment" />
       </form>
       <ul>
-        {displayComment[0] &&
-          displayComment.map((ele, i) => (
-            <li key={i}>
-              <p>
-                {ele.comments[0].commenter}
-                <br />
-                <br />
-                <span>"{ele.comments[0].comment}"</span>
-              </p>
-              <button onClick={() => deleteComment(ele.id)}>
-              Delete
-              </button>
-            </li>
-          ))}
+        {Array.isArray(displayComment) &&
+          displayComment.map((ele, i) => {
+            const hasComment =
+              Array.isArray(ele.comments) && ele.comments.length > 0;
+            return (
+              <li key={i}>
+                <p>
+                  {hasComment ? ele.comments[0].commenter : "Anonymous"}
+                  <br />
+                  <br />
+                  <span>
+                    "
+                    {hasComment
+                      ? ele.comments[0].comment
+                      : "No comment provided"}
+                    "
+                  </span>
+                </p>
+                <button onClick={() => deleteComment(ele.id)}>Delete</button>
+              </li>
+            );
+          })}
       </ul>
     </div>
   );

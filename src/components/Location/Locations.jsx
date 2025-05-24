@@ -16,9 +16,9 @@ export default function Locations() {
   const zip = address.split("|")[0];
   const street = address.split("|")[2];
 
-  const LINK_URL = `https://data.cityofnewyork.us/resource/varh-9tsp.json?city=${borough}&postcode=${zip}&ssid=LinkNYC%20Free%20Wi-Fi`;
+  const LINK_URL = `https://data.cityofnewyork.us/resource/s4kf-3yrf.json?boro=${borough}&postcode=${zip}`;
 
-  const boroughURL = `https://data.cityofnewyork.us/resource/varh-9tsp.json?city=${borough}&ssid=LinkNYC%20Free%20Wi-Fi`;
+  const boroughURL = `https://data.cityofnewyork.us/resource/s4kf-3yrf.json?boro=${borough}`;
 
   const url = `https://api.geocod.io/v1.7/geocode?q=${street}+${borough}+NY&api_key=${
     import.meta.env.VITE_API_KEY
@@ -34,19 +34,26 @@ export default function Locations() {
     fetch(zip ? LINK_URL : boroughURL)
       .then((res) => res.json())
       .then((res) => {
+        console.log(res);
         const milesArray = res.map((terminal) => {
           return {
-            location: formatAddress(terminal.location),
-            lat: terminal.lat,
-            lon: terminal.lon,
-            borough: terminal.boroname,
+            street_address: formatAddress(terminal.street_address),
+            latitude: terminal.latitude,
+            longitude: terminal.longitude,
+            borough: terminal.boro,
             zipcode: terminal.postcode,
-            objectid: terminal.objectid,
-            miles: getDistance(latitude, longitude, terminal.lat, terminal.lon),
+            cb_link_id: terminal.cb_link_id,
+            miles: getDistance(
+              latitude,
+              longitude,
+              terminal.latitude,
+              terminal.longitude
+            ),
           };
         });
         const sortedArray = milesArray.sort((a, b) => a.miles - b.miles);
         setLinkLocations(sortedArray.slice(0, 10));
+        console.log(linkLocations);
       })
       .catch((err) => console.error(err));
   }, [location]);
@@ -97,7 +104,7 @@ export default function Locations() {
         {linkLocations[0] &&
           linkLocations.map((terminal) => (
             <LinkTerminal
-              key={terminal.objectid}
+              key={terminal.cb_link_id}
               terminal={terminal}
               latitude={latitude}
               longitude={longitude}
