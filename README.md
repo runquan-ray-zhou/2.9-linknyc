@@ -38,7 +38,7 @@ The application leverages several key technologies to provide a seamless user ex
 ## Usage
 
 1. Open the application in your web browser
-2. Enter your address or location
+2. Enter an address or use your current location
 3. View the list of nearest LinkNYC terminals
 4. Click on a terminal for more details or directions
 

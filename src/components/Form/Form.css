@@ -13,7 +13,7 @@
   font-weight: 900;
 }
 .find__button {
-  width: 100%;
+  width: auto;
   font-size: 2em;
   margin-top: 50px;
   padding: 10px 61px 10px 61px;
@@ -32,4 +32,15 @@
 input,
 select {
   padding: 5px;
+}
+.my__button {
+  width: auto;
+  font-size: 2em;
+  margin-top: 50px;
+  padding: 10px 61px 10px 61px;
+  border: none;
+  background-color: #1d3557;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
 }

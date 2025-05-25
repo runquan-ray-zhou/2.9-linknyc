@@ -44,3 +44,19 @@ export function formatAddress(str) {
     .map((ele) => ele[0].toUpperCase() + ele.slice(1).toLowerCase())
     .join(" ");
 }
+
+// function to switch to correct borough from geo location
+export function getCorrectBorough(str) {
+  switch (str) {
+    case "New York":
+      return "Manhattan";
+    case "Brooklyn":
+      return "Brooklyn";
+    case "Queens":
+      return "Queens";
+    case "Bronx":
+      return "Bronx";
+    case "Staten Island":
+      return "Staten Island";
+  }
+}
