@@ -45,20 +45,19 @@ export default function CommentForm({ terminalId }) {
     setComment({ ...comment, [e.target.id]: e.target.value });
   }
 
-  function createNewComment(newComment) {
+  async function createNewComment(newComment) {
     const options = {
       method: "POST",
       body: JSON.stringify(newComment),
       headers: { "Content-Type": "application/json" },
     };
-    return fetch(`${commentsURL}`, options)
-      .then((response) => {
-        return response.json();
-      })
-      .then(() => {
-        navigate(0);
-      })
-      .catch((error) => console.error(error));
+    try {
+      const response = await fetch(`${commentsURL}`, options);
+      await response.json();
+      navigate(0);
+    } catch (error) {
+      return console.error(error);
+    }
   }
 
   function addComments(e) {
@@ -66,9 +65,10 @@ export default function CommentForm({ terminalId }) {
     createNewComment(newComment);
   }
 
-  function deleteComment(id) {
+  async function deleteComment(id) {
     const options = { method: "DELETE" };
-    return fetch(`${commentsURL}/${id}`, options).then(() => navigate(0));
+    await fetch(`${commentsURL}/${id}`, options);
+    return navigate(0);
   }
 
   return (

@@ -1,18 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavBar from './components/NavBar/NavBar';
-import Login from './components/Login/Login';
-import About from './components/About/About';
-import Home from './components/Home/Home';
-import Form from './components/Form/Form';
-import Locations from './components/Location/Locations';
-import Starred from './components/Starred/Starred';
-import Error from './components/Error/Error';
-import './App.css'
+import NavBar from "./components/NavBar/NavBar";
+import Login from "./components/Login/Login";
+import About from "./components/About/About";
+import Home from "./components/Home/Home";
+import Form from "./components/Form/Form";
+import Locations from "./components/Location/Locations";
+import Starred from "./components/Starred/Starred";
+import Error from "./components/Error/Error";
+import "./App.css";
 
 function App() {
-  
   return (
-    <div className='App.css'>
+    <div className="App.css">
       <main>
         <Router>
           <NavBar />
@@ -29,7 +28,7 @@ function App() {
         </Router>
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

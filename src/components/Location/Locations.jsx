@@ -34,7 +34,6 @@ export default function Locations() {
     fetch(zip ? LINK_URL : boroughURL)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
         const milesArray = res.map((terminal) => {
           return {
             street_address: formatAddress(terminal.street_address),
@@ -53,7 +52,6 @@ export default function Locations() {
         });
         const sortedArray = milesArray.sort((a, b) => a.miles - b.miles);
         setLinkLocations(sortedArray.slice(0, 10));
-        console.log(linkLocations);
       })
       .catch((err) => console.error(err));
   }, [location]);

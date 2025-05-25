@@ -1,34 +1,35 @@
 .search {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    min-height: 85vh;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 85vh;
+  margin: 0;
+  padding: 0;
 }
 .search__label {
-    margin-top: 20px;
-    font-size: 1.8em;
-    font-weight: 900;
+  margin-top: 20px;
+  font-size: 1.8em;
+  font-weight: 900;
 }
 .search__button {
-    width: 100%;
-    font-size: 2em;
-    margin-top: 50px;
-    padding: 10px 61px 10px 61px;
-    border: none;
-    background-color: #1D3557;
-    cursor: pointer;
-    color: white;
-    border-radius: 5px;
+  width: 100%;
+  font-size: 2em;
+  margin-top: 50px;
+  padding: 10px 61px 10px 61px;
+  border: none;
+  background-color: #1d3557;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
 }
 .search__address {
-    width: 200px
+  width: 200px;
 }
 .search__borough {
-    width: 175px
+  width: 175px;
 }
-input, select {
-    padding: 5px;
+input,
+select {
+  padding: 5px;
 }

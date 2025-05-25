@@ -32,30 +32,30 @@ export default function LinkTerminal({ terminal, longitude, latitude }) {
   }, []);
 
   // function to check if location is already starred
-  function checkTerminal(id, url) {
-    return fetch(url)
-      .then((res) => res.json())
-      .then((res) => {
-        return res.some((obj) => obj.cb_link_id === id);
-      })
-      .catch((err) => console.error(err));
+  async function checkTerminal(id, url) {
+    try {
+      const res = await fetch(url);
+      const res_1 = await res.json();
+      return res_1.some((obj) => obj.cb_link_id === id);
+    } catch (err) {
+      return console.error(err);
+    }
   }
 
   // function to add terminal location to mock api
-  function addTerminal(terminal, url) {
+  async function addTerminal(terminal, url) {
     const options = {
       method: "POST",
       body: JSON.stringify(terminal),
       headers: { "Content-Type": "application/json" },
     };
-    return fetch(`${url}`, options)
-      .then((response) => {
-        return response.json();
-      })
-      .then(() => {
-        navigate(0);
-      })
-      .catch((err) => console.error(err));
+    try {
+      const response = await fetch(`${url}`, options);
+      await response.json();
+      navigate(0);
+    } catch (err) {
+      return console.error(err);
+    }
   }
 
   // onClick function to add terminal location to starred page
@@ -72,11 +72,14 @@ export default function LinkTerminal({ terminal, longitude, latitude }) {
   }
 
   // function to delete terminal location from starred page
-  function deleteTerminal(id) {
+  async function deleteTerminal(id) {
     const options = { method: "DELETE" };
-    return fetch(`${starredURL}/${id}`, options)
-      .then(() => navigate(0))
-      .catch((err) => console.error(err));
+    try {
+      await fetch(`${starredURL}/${id}`, options);
+      return navigate(0);
+    } catch (err) {
+      return console.error(err);
+    }
   }
 
   // function to toggle comments section
