@@ -1,3 +1,4 @@
+/* Navigation bar */
 nav {
   display: flex;
   align-items: center;
@@ -5,24 +6,26 @@ nav {
   text-align: center;
   background-color: #1d3557;
   position: absolute;
-  margin: 0;
-  padding: 0;
   top: 20px;
   right: 0;
   left: 0;
   height: 50px;
+  margin: 0;
+  padding: 0;
+}
 
-  button:hover {
-    color: #e63946;
-  }
+/* Navigation buttons */
+nav button {
+  margin: 0;
+  padding: 0;
+  font-size: 1.1em;
+  background: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 
-  button {
-    margin: 0;
-    padding: 0;
-    font-size: 1.1em;
-    background: transparent;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
+/* Navigation button hover state */
+nav button:hover {
+  color: #e63946;
 }

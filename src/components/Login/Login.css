@@ -1,21 +1,28 @@
+/* Login container */
 .login {
   display: flex;
   flex-direction: column;
   align-items: center;
-  span {
-    color: white;
-    font-size: 4em;
-    font-weight: 900;
-    -webkit-text-stroke: 1.7px black;
-    text-align: center;
-    position: absolute;
-    top: 200px;
-  }
-  img {
-    margin-top: 30px;
-    width: 100%;
-  }
 }
+
+/* Main title */
+.login span {
+  position: absolute;
+  top: 200px;
+  color: white;
+  font-size: 4em;
+  font-weight: 900;
+  text-align: center;
+  -webkit-text-stroke: 1.7px black;
+}
+
+/* WiFi icon */
+.login img {
+  width: 100%;
+  margin-top: 30px;
+}
+
+/* Concentric circles */
 .circle {
   width: 300px;
   height: 300px;
@@ -23,69 +30,79 @@
   border-radius: 50%;
   position: relative;
 }
+
 .circle1 {
   width: 290px;
   height: 290px;
   background-color: #457b9d;
   border-radius: 50%;
   position: absolute;
-  margin: auto;
   top: 0;
   right: 0;
-  left: 0;
   bottom: 0;
+  left: 0;
+  margin: auto;
 }
+
 .circle2 {
   width: 275px;
   height: 275px;
   background-color: black;
   border-radius: 50%;
   position: absolute;
-  margin: auto;
   top: 0;
   right: 0;
-  left: 0;
   bottom: 0;
+  left: 0;
+  margin: auto;
 }
+
 .circle3 {
   width: 260px;
   height: 260px;
   background-color: #457b9d;
   border-radius: 50%;
   position: absolute;
-  margin: auto;
   top: 0;
   right: 0;
-  left: 0;
   bottom: 0;
+  left: 0;
+  margin: auto;
 }
+
+/* Login button container */
 .login-button__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 50px;
-  background-color: white;
   padding: 5px;
+  background-color: white;
   border-radius: 5px;
 }
+
+/* Edition label */
 .edition {
-  padding: 10px 15px 10px 15px;
+  padding: 10px 15px;
   background-color: #e63946;
   border-radius: 5px;
-  p {
-    font-size: 2em;
-    margin: 0;
-    color: white;
-  }
 }
+
+.edition p {
+  margin: 0;
+  font-size: 2em;
+  color: white;
+}
+
+/* Enter button */
 .login-button {
   width: 100%;
-  font-size: 2em;
   margin-top: 5px;
-  padding: 10px 61px 10px 61px;
-  border: none;
+  padding: 10px 61px;
+  font-size: 2em;
   background-color: #1d3557;
-  cursor: pointer;
   color: white;
+  border: none;
   border-radius: 5px;
+  cursor: pointer;
 }

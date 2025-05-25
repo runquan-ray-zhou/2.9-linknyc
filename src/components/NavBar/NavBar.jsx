@@ -8,7 +8,7 @@ export default function NavBar() {
         <button>Home</button>
       </Link>
       <Link to="/form">
-        <button>Search</button>
+        <button>Find</button>
       </Link>
       <Link to="/starred">
         <button>Starred</button>

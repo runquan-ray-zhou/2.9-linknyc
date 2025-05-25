@@ -4,5 +4,6 @@ html {
 body {
   font-family: monospace;
   height: 100%;
+  margin: 0;
   overflow: auto;
 }

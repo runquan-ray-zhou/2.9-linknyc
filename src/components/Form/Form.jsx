@@ -18,14 +18,14 @@ export default function Form() {
   }
 
   return (
-    <div className="search">
-      <h1>Search for closest LinkNYC Terminal</h1>
+    <div className="find">
+      <h1>Find Closest LinkNYC Terminal</h1>
       <form onSubmit={handleFormSubmit}>
         <label>
-          <div className="search__label">Address:</div>
+          <div className="find__label">Address:</div>
           <br />
           <input
-            className="search__address"
+            className="find__address"
             type="text"
             name="address"
             id="address"
@@ -34,9 +34,9 @@ export default function Form() {
         </label>
         <br />
         <label>
-          <div className="search__label">Borough:</div>
+          <div className="find__label">Borough:</div>
           <br />
-          <select className="search__borough" name="borough" id="borough">
+          <select className="find__borough" name="borough" id="borough">
             <option value="">Choose a Borough</option>
             <option value="Bronx">Bronx</option>
             <option value="Manhattan">Manhattan</option>
@@ -47,10 +47,10 @@ export default function Form() {
         </label>
         <br />
         <label>
-          <div className="search__label">Zip code:</div>
+          <div className="find__label">Zip code:</div>
           <br />
           <input
-            className="search__zipcode"
+            className="find__zipcode"
             type="text"
             name="zipcode"
             id="zipcode"
@@ -58,8 +58,8 @@ export default function Form() {
           />
         </label>
         <br />
-        <button type="submit" className="search__button">
-          Search
+        <button type="submit" className="find__button">
+          Find
         </button>
       </form>
     </div>

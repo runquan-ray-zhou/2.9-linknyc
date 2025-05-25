@@ -70,7 +70,7 @@ export default function Locations() {
 
   return (
     <div className="locations">
-      <h2>Current Location</h2>
+      <h1>Current Location</h1>
       {location.number && (
         <div className="locations__current">
           <div className="locations__current-map">
@@ -97,7 +97,7 @@ export default function Locations() {
           </div>
         </div>
       )}
-      <h2>Closest LinkNYC</h2>
+      <h1>Closest LinkNYC</h1>
       <ul>
         {linkLocations[0] &&
           linkLocations.map((terminal) => (

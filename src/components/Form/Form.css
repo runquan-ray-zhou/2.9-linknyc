@@ -1,4 +1,4 @@
-.search {
+.find {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,12 +7,12 @@
   margin: 0;
   padding: 0;
 }
-.search__label {
+.find__label {
   margin-top: 20px;
   font-size: 1.8em;
   font-weight: 900;
 }
-.search__button {
+.find__button {
   width: 100%;
   font-size: 2em;
   margin-top: 50px;
@@ -23,10 +23,10 @@
   color: white;
   border-radius: 5px;
 }
-.search__address {
+.find__address {
   width: 200px;
 }
-.search__borough {
+.find__borough {
   width: 175px;
 }
 input,

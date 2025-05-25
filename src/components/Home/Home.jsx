@@ -6,7 +6,7 @@ import star from "../../assets/star.svg";
 export default function Home() {
   return (
     <div className="home">
-      <h1>LinkNYC Terminals</h1>
+      <h1>Find LinkNYC Terminals</h1>
       <Link to="/form">
         <button>
           <img className="home__google-icon" src={google} alt="google icon" />
